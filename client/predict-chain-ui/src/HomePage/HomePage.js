@@ -1,8 +1,22 @@
+import React, {useState, useEffect} from 'react';
 import './HomePage.css'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import axios from 'axios'
 
 function HomePage() {
+  const [getMessage, setGetMessage] = useState({})
+
+  useEffect(()=>{
+    axios.get('http://localhost:5000/flask/hello').then(response => {
+      console.log("SUCCESS", response)
+      setGetMessage(response)
+    }).catch(error => {
+      console.log(error)
+    })
+
+  }, [])
+  
   return (
     <div>
         <Header/>
@@ -27,6 +41,11 @@ function HomePage() {
           <div className="img">
             <img src={require('../img/image-src.png')}/>
           </div>
+        </div>
+        <div>
+          {getMessage.status === 200 ? 
+          <h3>{getMessage.data.message}</h3> :
+          <h3>LOADING</h3>}
         </div>
         <Footer/>
     </div>
