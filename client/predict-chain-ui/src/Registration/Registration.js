@@ -59,6 +59,7 @@ function RegistrationForm() {
             <Header/>
             <div className="form" style={{marginTop: "200px", marginBottom: "200px"}}>
                 <div className="form-body">
+                    <h2 style={{textAlign: "center"}}>Registration</h2>
                     <div className="username">
                         <label className="form__label" for="firstName">First Name </label>
                         <input className="form__input" type="text" value={firstName} onChange = {(e) => handleInputChange(e)} id="firstName" placeholder="First Name"/>
@@ -84,7 +85,7 @@ function RegistrationForm() {
                     <button onClick={()=>handleSubmit()} type="submit" class="btn">Register</button>
                 </div>
             </div>
-            <div style={{marginTop: "319px"}}>
+            <div style={{marginTop: "269px"}}>
                 <Footer/>
             </div>
         </div>
